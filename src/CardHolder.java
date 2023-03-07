@@ -5,26 +5,23 @@ public class CardHolder {
     private ArrayList<Card> Cards;
 
     //ConstructorFullPack
-    public CardHolder() {
-        this.Cards = new ArrayList<>(); //Safety copy
-        for (int i = 0; i < Card.suitsList.size(); i++) {
-            for (int j = 0; j < Card.ranksList.size(); j++) {
-                StringBuilder sb = new StringBuilder();
-                String mast = Card.suitsList.get(i);
-                String tugevus = Card.ranksList.get(j);
-                sb.append(tugevus).append(mast);
-                Card uus = new Card(sb.toString());
-                Cards.add(uus);
+    public CardHolder(int n) {
+        this.Cards = new ArrayList<Card>();
+        //TODO implement different dificulties
+        if (n != 0){
+            for (int i = 0; i < Card.suitsList.size(); i++) {
+                for (int j = 0; j < Card.ranksList.size(); j++) {
+                    StringBuilder sb = new StringBuilder();
+                    String suit = Card.suitsList.get(i);
+                    String rank = Card.ranksList.get(j);
+                    sb.append(rank).append(suit);
+                    Card uus = new Card(sb.toString());
+                    Cards.add(uus);
+                }
             }
         }
     }
-    //ConstructorPartialPack
-    public CardHolder(ArrayList<Card> Cards) {
-        this.Cards = new ArrayList<>(); //Safety copy
-        if (!kasOnKorduvaid(Cards))
-            this.Cards = Cards;
-        else throw new RuntimeException("Kaardipakkis on korduvaid Carde");
-    }
+
     //Method to identify whether there are same cards in the deck
     public boolean kasOnKorduvaid(ArrayList<Card> list) {
         for (int i = 0; i < list.size(); i++) {
