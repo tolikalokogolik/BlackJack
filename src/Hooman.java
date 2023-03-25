@@ -14,16 +14,16 @@ public class Hooman {
         int numOfAces = 0;
 
         for (Card card : cardsOnHand.getCards()){
-            if (card.getRank() == "K" && card.getRank() == "Q" && card.getRank() == "J"){
+            if (card.getRank().equals("K") || card.getRank().equals("Q") || card.getRank().equals("J")){
                 sum += 10;
-            } else if (card.getRank() == "A") {
+            } else if (card.getRank().equals("A")) {
                 numOfAces += 1;
             } else {
                 sum += Integer.parseInt(card.getRank());
             }
         }
 
-        if (sum + numOfAces*11 <= 21){
+        if ((sum + numOfAces*11) <= 21){
             sum += numOfAces*11;
         } else {
             sum += numOfAces*1;

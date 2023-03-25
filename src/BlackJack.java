@@ -81,7 +81,7 @@ public class BlackJack {
     }
 
     private void showWinMessage() {
-        System.out.println("Võitsid mängu, tubli!");
+        System.out.println("Võitsid mängu summaga "+ gamer.calculatePoints() + ", tubli!");
         // TODO add stats: wins and loses stats
     }
 
