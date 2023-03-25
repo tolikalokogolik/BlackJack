@@ -1,5 +1,7 @@
 public class Dealer extends Hooman{
-    public Dealer(BlackJack blackJack) {
-        super(blackJack);
+    private Card firstCard;
+
+    public void showFirstCard(){
+
     }
 }

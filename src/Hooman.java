@@ -1,17 +1,14 @@
 public class Hooman {
     private CardHolder cardsOnHand;
-    private BlackJack blackJack;
 
-    public Hooman(BlackJack blackJack) {
+    public Hooman() {
         this.cardsOnHand = new CardHolder();
-        this.blackJack = blackJack;
     }
 
     //TODO implement ending turn
     public void endturn(){
     }
-    public void hit() {
-        Card card = blackJack.takeCard();
+    public void hit(Card card) {
         cardsOnHand.addCard(card);
     }
     public void pass() {
@@ -19,5 +16,17 @@ public class Hooman {
     }
     public int checkValue() {
         return cardsOnHand.cardsToValue();
+    }
+
+    public int calculatePoints(){
+        //TODO: add calculation of points
+        return 0;
+    }
+
+    public boolean checkLose(){
+        if (calculatePoints() > 21) {
+            return true;
+        }
+        return false;
     }
 }
