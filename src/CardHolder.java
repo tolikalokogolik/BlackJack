@@ -4,7 +4,7 @@ import java.util.Collections;
 public class CardHolder {
     private ArrayList<Card> Cards;
 
-    //ConstructorFullPack
+    //Constructor for n full pack(s)
     public CardHolder(int n) {
         this.Cards = new ArrayList<>();
         //TODO implement different dificulties
@@ -20,6 +20,10 @@ public class CardHolder {
                 }
             }
         }
+    }
+    //Constructor for empty pack
+    public CardHolder() {
+        this.Cards = new ArrayList<>();
     }
 
     //Method to identify whether there are same cards in the deck
@@ -44,5 +48,8 @@ public class CardHolder {
         if (!Cards.isEmpty())
             return Cards.remove(0);
         else throw new RuntimeException("CardHolder is empty");
+    }
+    public void addCard(Card card) {
+        Cards.add(card);
     }
 }
