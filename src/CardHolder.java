@@ -44,6 +44,11 @@ public class CardHolder {
     public void shuffle() {
         Collections.shuffle(Cards);
     }
+
+    public int size() {
+        return Cards.size();
+    }
+
     public Card takeCard() {
         if (!Cards.isEmpty())
             return Cards.remove(0);

@@ -7,10 +7,35 @@ public class BlackJack {
     private final Dealer dealer;
 
     public void start(){
+        String gamerChoice;
+        // Giving first cards
+        gamer.hit(gamePack.takeCard());
+        dealer.hit(gamePack.takeCard());
+        gamer.hit(gamePack.takeCard());
+        dealer.hit(gamePack.takeCard());
+        dealer.showFirstCard();
+
+        // Gamer turns
         while (true){
-
+            gamer.showStatus();
+            gamerChoice = gamer.whatToDoNext();
+            if (gamerChoice == "hit"){
+                gamer.hit(gamePack.takeCard());
+                if (gamer.calculatePoints() > 21){
+                    showLoseMessage(gamer.calculatePoints());
+                    break;
+                } else if (gamer.calculatePoints() == 21){
+                    showWinMessage();
+                    break;
+                } else{
+                    break;
+                }
+            }
         }
-
+        // Dealer turns
+        while (gamer.calculatePoints()< 21){
+            // TODO: AI for Dealer
+        }
     }
 
     // Constructors for initting game, base difficulty = 1
