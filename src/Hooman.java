@@ -5,9 +5,6 @@ public class Hooman {
         this.cardsOnHand = new CardHolder();
     }
 
-    //TODO implement ending turn
-    public void endturn(){
-    }
     public void hit(Card card) {
         cardsOnHand.addCard(card);
     }
