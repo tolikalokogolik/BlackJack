@@ -58,7 +58,7 @@ public class BlackJack {
     }
 
     // Function rules() prints out the rules
-    public void showRules(){
+    public static void showRules(){
         // TODO add rules
         System.out.println("There will be rules");
     }
@@ -71,7 +71,7 @@ public class BlackJack {
         }
     }
 
-    public static String readDifficultyInput() {
+    public static int readDifficultyInput() {
         String input;
         while (true){
             System.out.println("Sisesta raskustase (1-3): ");
@@ -84,7 +84,7 @@ public class BlackJack {
                 break;
             }
         }
-        return input;
+        return Integer.parseInt(input);
     }
 
     private void showWinMessage() {
