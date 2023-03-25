@@ -19,7 +19,7 @@ public class BlackJack {
         while (true){
             gamer.showStatus();
             gamerChoice = gamer.whatToDoNext();
-            if (gamerChoice == "hit"){
+            if (gamerChoice.equals( "hit")){
                 gamer.hit(gamePack.takeCard());
                 if (gamer.calculatePoints() > 21){
                     showLoseMessage(gamer.calculatePoints());
@@ -50,12 +50,6 @@ public class BlackJack {
         this.dealer = new Dealer();
         this.gamePack = new CardHolder(1);
     }
-    public CardHolder getGamePack() {
-        return gamePack;
-    }
-    public Card takeCard() {
-        return gamePack.takeCard();
-    }
 
     // Function rules() prints out the rules
     public static void showRules(){
@@ -79,7 +73,6 @@ public class BlackJack {
             input = scan.next();
             if (!input.equals("1") && !input.equals("2") && !input.equals("3")){
                 System.out.println("Sisestatud raskustase on vigane.");
-                continue;
             } else {
                 break;
             }

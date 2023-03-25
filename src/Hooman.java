@@ -11,12 +11,6 @@ public class Hooman {
     public void hit(Card card) {
         cardsOnHand.addCard(card);
     }
-    public void pass() {
-        this.endturn();
-    }
-    public int checkValue() {
-        return cardsOnHand.cardsToValue();
-    }
 
     public int calculatePoints(){
         int sum = 0;
