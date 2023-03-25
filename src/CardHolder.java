@@ -52,4 +52,24 @@ public class CardHolder {
     public void addCard(Card card) {
         Cards.add(card);
     }
+    public int cardsToValue() {
+        int value = 0;
+        for (Card card : Cards) {
+            String suit = card.getSuit();
+            switch (suit) {
+                case "K", "Q", "J", "10" -> value += 10;
+                case "9" -> value += 9;
+                case "8" -> value += 8;
+                case "7" -> value += 7;
+                case "6" -> value += 6;
+                case "5" -> value += 5;
+                case "4" -> value += 4;
+                case "3" -> value += 3;
+                case "2" -> value += 2;
+                default -> {
+                }
+            }
+        }
+        return value;
+    }
 }

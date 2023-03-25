@@ -9,14 +9,15 @@ public class Hooman {
 
     //TODO implement ending turn
     public void endturn(){
-
     }
-
     public void hit() {
         Card card = blackJack.takeCard();
         cardsOnHand.addCard(card);
     }
     public void pass() {
         this.endturn();
+    }
+    public int checkValue() {
+        return cardsOnHand.cardsToValue();
     }
 }

@@ -23,10 +23,10 @@ public class Card {
     }
 
     //Getters
-    public String getTugevus() {
+    public String getRank() {
         return rank;
     }
-    public String getMast() {
+    public String getSuit() {
         return suit;
     }
     //toString
