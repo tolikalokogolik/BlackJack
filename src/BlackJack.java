@@ -27,9 +27,9 @@ public class BlackJack {
                 } else if (gamer.calculatePoints() == 21){
                     showWinMessage();
                     break;
-                } else{
-                    break;
                 }
+            } else {
+                break;
             }
         }
         // Dealer turns
@@ -42,6 +42,7 @@ public class BlackJack {
     // TODO: implement difficulties (more than one cardpack)
     public BlackJack(int difficulty) {
         this.gamePack = new CardHolder(difficulty);
+        gamePack.shuffle();
         this.gamer = new Gamer();
         this.dealer = new Dealer();
     }
@@ -49,6 +50,7 @@ public class BlackJack {
         this.gamer = new Gamer();
         this.dealer = new Dealer();
         this.gamePack = new CardHolder(1);
+        gamePack.shuffle();
     }
 
     // Function rules() prints out the rules
