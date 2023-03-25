@@ -21,6 +21,7 @@ public class Hooman {
     public int calculatePoints(){
         int sum = 0;
         int numOfAces = 0;
+
         for (Card card : cardsOnHand.getCards()){
             if (card.getRank() == "K" && card.getRank() == "Q" && card.getRank() == "J"){
                 sum += 10;
@@ -45,5 +46,9 @@ public class Hooman {
             return true;
         }
         return false;
+    }
+
+    public CardHolder getCardsOnHand() {
+        return cardsOnHand;
     }
 }
