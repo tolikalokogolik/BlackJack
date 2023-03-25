@@ -6,7 +6,7 @@ public class CardHolder {
 
     //ConstructorFullPack
     public CardHolder(int n) {
-        this.Cards = new ArrayList<Card>();
+        this.Cards = new ArrayList<>();
         //TODO implement different dificulties
         if (n != 0){
             for (int i = 0; i < Card.suitsList.size(); i++) {
@@ -23,7 +23,7 @@ public class CardHolder {
     }
 
     //Method to identify whether there are same cards in the deck
-    public boolean kasOnKorduvaid(ArrayList<Card> list) {
+    public boolean sameCards(ArrayList<Card> list) {
         for (int i = 0; i < list.size(); i++) {
             for (int j = 0; j < list.size(); j++) {
                 String first = list.get(i).toString();
@@ -37,12 +37,12 @@ public class CardHolder {
     public ArrayList<Card> getCards() {
         return (ArrayList<Card>) Cards.clone();
     }
-    public void sega() {
+    public void shuffle() {
         Collections.shuffle(Cards);
     }
     public Card takeCard() {
         if (!Cards.isEmpty())
             return Cards.remove(0);
-        else throw new RuntimeException("Kaardipakk on tühi");
+        else throw new RuntimeException("CardHolder is empty");
     }
 }
