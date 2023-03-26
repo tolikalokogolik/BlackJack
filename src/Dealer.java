@@ -15,6 +15,10 @@ public class Dealer extends Hooman{
         super.hit(card);
     }
 
+    public void dealerTakesCard(){
+        System.out.println("Diiler otsustas võtta kaardi");
+    }
+
     public void showFirstCard(){
         System.out.println("Dealers first card is: " + firstCard.getSuit() + firstCard.getRank());
     }
