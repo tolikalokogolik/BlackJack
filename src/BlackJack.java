@@ -1,3 +1,4 @@
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 //Наверн тут вся игра может быть. Сюда можно while прописать с hit() и pass()
@@ -5,8 +6,9 @@ public class BlackJack {
     private final CardHolder gamePack;
     private final Player player;
     private final Dealer dealer;
+    private final Stats stats;
 
-    public void start(){
+    public void start() throws FileNotFoundException {
 
         // Giving first cards
         player.hit(gamePack.takeCard());
@@ -21,24 +23,22 @@ public class BlackJack {
         // Dealer turns
         dealerTurns();
 
-        for (Card card : player.getCardsOnHand()){
-            System.out.println(card.toString());
-        }
-        System.out.println("----");
-        for (Card card : dealer.getCardsOnHand()){
-            System.out.println(card.toString());
-        }
-
         // calculating winner
          if (player.calculatePoints()< 21 && dealer.calculatePoints() <= 21){
              if (dealer.calculatePoints() > player.calculatePoints()){
                  showLoseMessage(player.calculatePoints());
+                 stats.addLose();
              } else if (dealer.calculatePoints() < player.calculatePoints()) {
                  showWinMessage(player.calculatePoints(), dealer.calculatePoints());
+                 stats.addWin();
              } else {
                  showLoseMessage(player.calculatePoints());
+                 stats.addLose();
              }
          }
+
+         stats.showStats();
+         stats.saveStats();
 
     }
 
@@ -56,6 +56,7 @@ public class BlackJack {
                     dealer.hit(gamePack.takeCard());
                     if (dealer.calculatePoints() > 21){
                         showWinMessage(player.calculatePoints(), dealer.calculatePoints());
+                        stats.addWin();
                     }
                 } else{
                     break;
@@ -75,9 +76,11 @@ public class BlackJack {
                 player.hit(gamePack.takeCard());
                 if (player.calculatePoints() > 21){
                     showLoseMessage(player.calculatePoints());
+                    stats.addLose();
                     break;
                 } else if (player.calculatePoints() == 21){
                     showWinMessage(player.calculatePoints(), dealer.calculatePoints());
+                    stats.addWin();
                     break;
                 }
             } else {
@@ -86,18 +89,20 @@ public class BlackJack {
         }
     }
 
-    public BlackJack(int difficulty) {
+    public BlackJack(int difficulty) throws Exception {
         this.gamePack = new CardHolder(difficulty);
         System.out.println("Kaardipakis on " + gamePack.size() + " kaarti.");
         gamePack.shuffle();
         this.player = new Player();
         this.dealer = new Dealer();
+        this.stats = new Stats();
     }
-    public BlackJack() {
+    public BlackJack() throws Exception {
         this.player = new Player();
         this.dealer = new Dealer();
         this.gamePack = new CardHolder(1);
         gamePack.shuffle();
+        this.stats = new Stats();
     }
 
     // Function rules() prints out the rules
