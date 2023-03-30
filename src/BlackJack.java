@@ -95,7 +95,12 @@ public class BlackJack {
     // Function rules() prints out the rules
     public static void showRules(){
         // TODO add rules
-        System.out.println("There will be rules");
+        System.out.println("Alustad BlackJack mänguga, reeglid on järgmised:\n" +
+                "1) Mängu eesmärgiks on saada rohkem punkte kui diiler, kelle rolli täidab siin AI. Kui aga mängu käigus su punktid ületavad 21, siis sa kaotad. Kui mängu käigus saad sa täpselt 21 punkti, siis oled sa automaatselt määratud võitjaks\n" +
+                "2) Punkte saab koguda kaartide abil. Mängu käesolevas versioonis on ainult 1 pakk, muidu saab neid olla ka rohkem\n" +
+                "3) Kaardid 2 - 10 annavad vastavalt sama palju punkte, kui palju on kaardi peal kirjas. J, Q ja K annavad ka 10 punkti. A annab su enda valikul kas 1 või 11 punkti.\n" +
+                "4) Mängu alguses saavad nii sina kui ka diiler 2 kaardi, diileri esimene kaart on nähtav. Seejärel on sul võimalik võtta kaarte juurde, nii palju kui soovi on.\n" +
+                "5) Kui sa ei taha enam kaarte juurde võtta, siis tekib see võimalus diileril. Punkte arvutatakse siis, kui diiler ka ei soovi enam kaarte juurde võtta või juhtub midagi punktist 1");
     }
 
     private void showLoseMessage(int playerPoints) {
