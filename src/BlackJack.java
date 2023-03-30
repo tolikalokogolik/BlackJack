@@ -21,12 +21,20 @@ public class BlackJack {
         // Dealer turns
         dealerTurns();
 
+        for (Card card : player.getCardsOnHand()){
+            System.out.println(card.toString());
+        }
+        System.out.println("----");
+        for (Card card : dealer.getCardsOnHand()){
+            System.out.println(card.toString());
+        }
+
         // calculating winner
-         if (player.calculatePoints()< 21){
+         if (player.calculatePoints()< 21 && dealer.calculatePoints() <= 21){
              if (dealer.calculatePoints() > player.calculatePoints()){
                  showLoseMessage(player.calculatePoints());
              } else if (dealer.calculatePoints() < player.calculatePoints()) {
-                 showWinMessage(dealer.calculatePoints());
+                 showWinMessage(player.calculatePoints(), dealer.calculatePoints());
              } else {
                  showLoseMessage(player.calculatePoints());
              }
@@ -47,7 +55,7 @@ public class BlackJack {
                 if (randomInt == 0){
                     dealer.hit(gamePack.takeCard());
                     if (dealer.calculatePoints() > 21){
-
+                        showWinMessage(player.calculatePoints(), dealer.calculatePoints());
                     }
                 } else{
                     break;
@@ -69,7 +77,7 @@ public class BlackJack {
                     showLoseMessage(player.calculatePoints());
                     break;
                 } else if (player.calculatePoints() == 21){
-                    showWinMessage(dealer.calculatePoints());
+                    showWinMessage(player.calculatePoints(), dealer.calculatePoints());
                     break;
                 }
             } else {
@@ -105,9 +113,9 @@ public class BlackJack {
 
     private void showLoseMessage(int playerPoints) {
         if (playerPoints > 21) {
-            System.out.println("Sul on liiga palju punkte - " + player.calculatePoints());
+            System.out.println("Kaotus - sul on liiga palju punkte - " + player.calculatePoints());
         } else {
-            System.out.println("Diiler sai rohkem punkte:" + dealer.calculatePoints() +
+            System.out.println("Kaotus - diiler sai rohkem punkte:" + dealer.calculatePoints() +
                     ", sul on aga ainult " + player.calculatePoints() + " punkti.");
         }
     }
@@ -127,11 +135,13 @@ public class BlackJack {
         return Integer.parseInt(input);
     }
 
-    private void showWinMessage(int dealerPoints) {
-        if (dealerPoints > 21){
-            System.out.println("Võitsid mängu, kuna diileril on liiga palju punkte - " + dealerPoints + ", sul on aga " + player.calculatePoints() + " punkti");
-        } else {
-            System.out.println("Võitsid mängu summaga " + player.calculatePoints() + ", tubli! Diileri punktid: " + dealer.calculatePoints());
+    private void showWinMessage(int playerPoints, int dealerPoints) {
+        if (playerPoints == dealerPoints ) {
+            System.out.println("Viik - sul ja diileril on samapalju punkte - " + playerPoints);
+        } else if (dealerPoints > 21) {
+            System.out.println("Diiler võttis liiga palju kaarte ja nüüd tema punktisumma on " + dealerPoints + " punkti, sul aga " + playerPoints + " punkti. Tubli!");
+        } else if (playerPoints < 21) {
+            System.out.println("Sul on rohkem punkte, kui diileril, tubli! Sinu punktisumma - " + playerPoints + ", diileril aga -" + dealerPoints);
         }
 
     }
