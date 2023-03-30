@@ -89,9 +89,28 @@ Tähtsamad funktsioonid:
 
 Sisaldab kõiki põhiteateid ja tegevusi seoses mänguga.
 
-Täh
+Tähtsamad funktsioonid:
 
+* private void dealerTurns() - paneb jooksma m+ägija käikude while tsükkli
+* private void playerTurns() - paneb jooksma diileri käikude while tsükkli
+* public void start() - käivitab kogu mängu
 
+### Main - peaklass
 
+Mängu käivitamiseks.
 
+## Projekti tegemise protsess
 
+1. Arutelu ligikaudse struktuuri üle (vajalikud funktsioonid, klassid) - koos.
+2. Baasi loomine : kõik klassid ilma või minimaalse sisuga + sisu kaartide ja kaardipaki jaoks - Gleb.
+3. Ülejäänud sisu loomine - Natali.
+4. Debugging + koodi puhastamine - Natali.
+5. Viimistlus - koos (vajaliku teksti kirjutamine jms).
+
+Mõlemad raiskasid umbes 2-3 päeva projekti tegemisele.
+Ei tundnud puudusi teadmistest, võib olla debugging oli natuke häiriv, nagu ikka progemises.
+
+Oleme päris rahul oma tööga. Lisaksime veel raskustaseme valiku ning statistika salvestuse.
+
+Peamiseks test-meetodiks oli igal pool sout toppimine ja järgiuurimine, miks väljund erineb oodatud väljundist.
+Üks bug näide: klassis Dealer oli omakorda loodud kaardipakk, mistõttu kui küsisid kaardipaki suurust, said tagasi 0, kui aga jooksid elemendid üle - kõik oli kohal.
