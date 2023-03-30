@@ -21,10 +21,6 @@ public class CardHolder {
             }
         }
     }
-    //Constructor for empty pack
-    public CardHolder() {
-        this.Cards = new ArrayList<>();
-    }
 
     //Method to identify whether there are same cards in the deck
     public boolean sameCards(ArrayList<Card> list) {
@@ -46,7 +42,7 @@ public class CardHolder {
     }
 
     public int size() {
-        return Cards.size();
+        return getCards().size();
     }
 
     public Card takeCard() {

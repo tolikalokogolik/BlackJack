@@ -1,8 +1,10 @@
+import java.util.ArrayList;
+
 public class Hooman {
     private CardHolder cardsOnHand;
 
     public Hooman() {
-        this.cardsOnHand = new CardHolder();
+        this.cardsOnHand = new CardHolder(0);
     }
 
     public void hit(Card card) {
@@ -39,7 +41,7 @@ public class Hooman {
         return false;
     }
 
-    public CardHolder getCardsOnHand() {
-        return cardsOnHand;
+    public ArrayList<Card> getCardsOnHand() {
+        return cardsOnHand.getCards();
     }
 }
