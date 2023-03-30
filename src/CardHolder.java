@@ -7,7 +7,6 @@ public class CardHolder {
     //Constructor for n full pack(s)
     public CardHolder(int n) {
         this.Cards = new ArrayList<>();
-        //TODO implement different dificulties
         if (n != 0){
             for (int l = 0; l < n ; l++){
                 for (int i = 0; i < Card.suitsList.size(); i++) {
