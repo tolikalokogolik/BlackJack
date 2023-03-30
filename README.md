@@ -44,4 +44,23 @@ Tähtsaim meetod:
 
 Kuna mängus ei oma suurt tähtsust mast, siis rank osutub rätsamaks punktisumma arvutamisel.
 
-### 
+### CardHolder
+
+Kaardipakk, mis võib olla kas tühi, või omada n erinevat kaardipakki,  n $\in$ N.
+Mängija ja diileri kaardid käes on vastavalt alguses tühjad kaardipakid, ning mängu käigus täituvad. 
+Defineeritakse ka mängu kaardipaki, kust mängija ja diiler kaardid võtavad.
+
+Tähtsamad meetodid:
+
+* public CardHolder(int n) - konstruktor
+* public void shuffle() - kaardipaki segamine
+* public Card takeCard() - kaardi võtmine kaardipakist
+* public void addCard(Card card) - kaardi lisamine kaardipakki
+
+### Hooman
+
+Ülemklass klassidele mängija ja diiler. Defineerib meetodid, mis on samad diileril ja mängijal.
+
+Tähtsamad meetodid:
+*
+
