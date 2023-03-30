@@ -62,5 +62,36 @@ Tähtsamad meetodid:
 Ülemklass klassidele mängija ja diiler. Defineerib meetodid, mis on samad diileril ja mängijal.
 
 Tähtsamad meetodid:
-*
+
+* public void hit(Card card) - võtab kaardi juurde
+* public int calculatePoints() - arvutab punktisumma vastavalt varem mainitud loogikale
+* public CardHolder getCardsOnHand() - tagastab kaardipaki
+
+### Player
+
+Nimi räägib iseenda eest.
+
+Tähtsamad meetodid:
+
+* public void showStatus() - prindib mängija hetkel olevad kaardid
+* public String whatToDoNext() - küsib ja kontrollib mängija järgmise tegevuse
+
+### Dealer
+
+Diileriga seotud funktsioonid, mis natuke erinevad mägijast.
+
+Tähtsamad funktsioonid:
+
+* public void hit(Card card) @Override - võtab kaardi juurde, kuid kui tegemist on esimese kaardiga, siis jätab selle meelde. Iga lisaks võetud kaardi kohta antakse teade mängijale.
+* public void showFirstCard() - prindib teate diileri esimesest kaardist.
+
+### BlackJack
+
+Sisaldab kõiki põhiteateid ja tegevusi seoses mänguga.
+
+Täh
+
+
+
+
 
