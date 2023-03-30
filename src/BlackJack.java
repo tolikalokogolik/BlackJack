@@ -7,7 +7,7 @@ public class BlackJack {
     private final Dealer dealer;
 
     public void start(){
-        String gamerChoice;
+
         // Giving first cards
         player.hit(gamePack.takeCard());
         dealer.hit(gamePack.takeCard());
@@ -15,25 +15,27 @@ public class BlackJack {
         dealer.hit(gamePack.takeCard());
         dealer.showFirstCard();
 
-        // Gamer turns
-        while (true){
-            player.showStatus();
-            gamerChoice = player.whatToDoNext();
-            if (gamerChoice.equals( "hit")){
-                player.hit(gamePack.takeCard());
-                if (player.calculatePoints() > 21){
-                    showLoseMessage(player.calculatePoints());
-                    break;
-                } else if (player.calculatePoints() == 21){
-                    showWinMessage(dealer.calculatePoints());
-                    break;
-                }
-            } else {
-                break;
-            }
-        }
+        // Player turns
+        playerTurns();
 
         // Dealer turns
+        dealerTurns();
+
+        // calculating winner
+         if (player.calculatePoints()< 21){
+             if (dealer.calculatePoints() > player.calculatePoints()){
+                 showLoseMessage(player.calculatePoints());
+             } else if (dealer.calculatePoints() < player.calculatePoints()) {
+                 showWinMessage(dealer.calculatePoints());
+             } else {
+                 showLoseMessage(player.calculatePoints());
+             }
+         }
+
+    }
+
+
+    private void dealerTurns(){
         int randomInt;
         while (player.calculatePoints()< 21){
             if (dealer.calculatePoints() <= 11){
@@ -54,17 +56,26 @@ public class BlackJack {
                 break;
             }
         }
+    }
 
-        // calculating winner
-         if (player.calculatePoints()< 21){
-             if (dealer.calculatePoints() > player.calculatePoints()){
-                 showLoseMessage(player.calculatePoints());
-             } else if (dealer.calculatePoints() < player.calculatePoints()) {
-                 showWinMessage(dealer.calculatePoints());
-             } else {
-                 showLoseMessage(player.calculatePoints());
-             }
-         }
+    private void playerTurns(){
+        String gamerChoice;
+        while (true){
+            player.showStatus();
+            gamerChoice = player.whatToDoNext();
+            if (gamerChoice.equals( "hit")){
+                player.hit(gamePack.takeCard());
+                if (player.calculatePoints() > 21){
+                    showLoseMessage(player.calculatePoints());
+                    break;
+                } else if (player.calculatePoints() == 21){
+                    showWinMessage(dealer.calculatePoints());
+                    break;
+                }
+            } else {
+                break;
+            }
+        }
     }
 
     // Constructors for initting game, base difficulty = 1
