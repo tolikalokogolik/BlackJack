@@ -9,16 +9,19 @@ public class CardHolder {
         this.Cards = new ArrayList<>();
         //TODO implement different dificulties
         if (n != 0){
-            for (int i = 0; i < Card.suitsList.size(); i++) {
-                for (int j = 0; j < Card.ranksList.size(); j++) {
-                    StringBuilder sb = new StringBuilder();
-                    String suit = Card.suitsList.get(i);
-                    String rank = Card.ranksList.get(j);
-                    sb.append(rank).append(suit);
-                    Card uus = new Card(sb.toString());
-                    Cards.add(uus);
+            for (int l = 0; l < n ; l++){
+                for (int i = 0; i < Card.suitsList.size(); i++) {
+                    for (int j = 0; j < Card.ranksList.size(); j++) {
+                        StringBuilder sb = new StringBuilder();
+                        String suit = Card.suitsList.get(i);
+                        String rank = Card.ranksList.get(j);
+                        sb.append(rank).append(suit);
+                        Card uus = new Card(sb.toString());
+                        Cards.add(uus);
+                    }
                 }
             }
+
         }
     }
 

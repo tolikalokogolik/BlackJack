@@ -78,10 +78,9 @@ public class BlackJack {
         }
     }
 
-    // Constructors for initting game, base difficulty = 1
-    // TODO: implement difficulties (more than one cardpack)
     public BlackJack(int difficulty) {
         this.gamePack = new CardHolder(difficulty);
+        System.out.println("Kaardipakis on " + gamePack.size() + " kaarti.");
         gamePack.shuffle();
         this.player = new Player();
         this.dealer = new Dealer();
@@ -129,8 +128,10 @@ public class BlackJack {
         } else {
             System.out.println("Võitsid mängu summaga " + player.calculatePoints() + ", tubli! Diileri punktid: " + dealer.calculatePoints());
         }
-        // TODO add stats: wins and loses stats
+
     }
+
+    // TODO add stats: wins and loses stats
 
 
 }
