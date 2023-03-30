@@ -95,6 +95,15 @@ Tähtsamad funktsioonid:
 * private void playerTurns() - paneb jooksma diileri käikude while tsükkli
 * public void start() - käivitab kogu mängu
 
+### Stats
+
+Võitude ja kaotuste statistika klass. Kui mängija vastab failis salvestatud nimele, siis lisab uue statistika juurde, vastasel juhul alustab loendamist nullist. Statistika on failis "stats.txt". Kui fail puudub, siis fail luuakse.
+
+Tähtsamad funktsioonid:
+
+* public Stats() - konstruktor, kus toimub kogu info sisselugemine
+* public void saveStats() - andmete salvestus
+
 ### Main - peaklass
 
 Mängu käivitamiseks.
@@ -110,7 +119,7 @@ Mängu käivitamiseks.
 Mõlemad raiskasid umbes 2-3 päeva projekti tegemisele.
 Ei tundnud puudusi teadmistest, võib olla debugging oli natuke häiriv, nagu ikka progemises.
 
-Oleme päris rahul oma tööga. Lisaksime veel statistika salvestuse.
+Võiks kuidagi ilusamat moodi kirjutada klassi BlackJack.
 
 Peamiseks test-meetodiks oli igal pool sout toppimine ja järgiuurimine, miks väljund erineb oodatud väljundist.
 Üks bug näide: klassis Dealer oli omakorda loodud kaardipakk, mistõttu kui küsisid kaardipaki suurust, said tagasi 0, kui aga jooksid elemendid üle - kõik oli kohal.
