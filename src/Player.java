@@ -2,7 +2,6 @@ import java.util.Scanner;
 
 public class Player extends Hooman{
     public void showStatus(){
-        // TODO: check does this look right
         System.out.println("Sinu kaardid on: ");
         for (Card card : getCardsOnHand()){
             System.out.print(card.getRank() + card.getSuit() + ", ");
